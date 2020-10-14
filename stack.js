@@ -31,6 +31,8 @@ class Stack {
     }
 }
 
+module.exports = Stack;
+
 MyStack = new Stack()
 
 MyStack.isEmpty(); // true
