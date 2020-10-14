@@ -31,6 +31,8 @@ class Queue {
     }
 }
 
+module.exports = Queue;
+
 let MyQueue = new Queue();
 
 MyQueue.isEmpty(); // true
