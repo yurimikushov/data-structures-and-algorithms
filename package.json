@@ -1,0 +1,14 @@
+{
+  "name": "data_structures",
+  "version": "0.1.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.5.3"
+  }
+}
