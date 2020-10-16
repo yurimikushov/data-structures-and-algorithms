@@ -31,7 +31,19 @@ class LinkedList {
     }
 
     addAtStart(value) {
-        
+        if(this.isEmpty()) {
+            this._storage = {
+                value: value,
+                next: null
+            }  
+        } else {
+            this._storage = {
+                value: value,
+                next: this._storage
+            }
+        }
+
+        this._length++;
     }
 
     delete() {
@@ -63,5 +75,7 @@ linkedList.addAtEnd(1);
 linkedList.addAtEnd(2);
 linkedList.addAtEnd(3);
 linkedList.addAtEnd(4);
+
+linkedList.addAtStart(5);
 
 console.log(linkedList);
