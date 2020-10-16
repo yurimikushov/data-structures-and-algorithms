@@ -1,32 +1,32 @@
 class Queue {
     constructor() {
-        this.storage = [];
-        this.length = 0;
+        this._storage = [];
+        this._length = 0;
     }
 
     add(value) {
-        this.storage.push(value);
-        this.length ++;
+        this._storage.push(value);
+        this._length ++;
     }
 
     delete() {
         if(this.isEmpty()) {
             return null;
         } else {
-            this.length --;
-            return this.storage.shift();
+            this._length --;
+            return this._storage.shift();
         }
     }
 
     isEmpty() {
-        return this.length == 0;
+        return this._length == 0;
     }
 
     peek() {
         if(this.isEmpty()) {
             return null;
         } else {
-            return this.storage[0];
+            return this._storage[0];
         }
     }
 }
