@@ -50,11 +50,4 @@ class Queue {
     }
 }
 
-let queue = new Queue();
-
-queue.add(1);
-queue.add(2);
-queue.add(3);
-
-console.log(queue.peek()); // 1
-console.log(queue.delete()); // 1
+module.exports = Queue;
