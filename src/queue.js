@@ -32,19 +32,3 @@ class Queue {
 }
 
 module.exports = Queue;
-
-let MyQueue = new Queue();
-
-MyQueue.isEmpty(); // true
-
-MyQueue.peek(); // null
-
-MyQueue.add(1); // [1]
-MyQueue.add(2); // [1, 2]
-MyQueue.add(3); // [1, 2, 3]
-
-MyQueue.delete(); // 1
-
-MyQueue.isEmpty(); // false
-
-MyQueue.peek(); // 2
