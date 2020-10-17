@@ -4,7 +4,7 @@ class Stack {
         this._length = 0;
     }
 
-    add(value) {
+    insert(value) {
         this._storage.push(value);
         this._length ++;
     }
