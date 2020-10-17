@@ -100,3 +100,14 @@ test('check deleteAtStart() method', () => {
     expect(storage.value).toBe(2);
     expect(storage.next.value).toBe(3);
 });
+
+test('check isContain() method', () => {
+    let linkedList = new LinkedList();
+
+    linkedList.insertAtEnd(1);
+    linkedList.insertAtEnd(2);
+    linkedList.insertAtEnd(3);
+    
+    expect(linkedList.isContain(2)).toBe(true);
+    expect(linkedList.isContain(4)).toBe(false);
+});

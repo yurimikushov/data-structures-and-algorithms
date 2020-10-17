@@ -139,8 +139,24 @@ class LinkedList {
         this._length--;
     }
 
-    search() {
+    isContain(value) {
+        if(this.isEmpty()) {
+            return false;
+        }
 
+        let isContain = false;
+
+        let currentElement = this._storage;
+
+        while(currentElement) {
+            if(currentElement.value == value) {
+                isContain = true;
+                break;
+            }
+            currentElement = currentElement.next;
+        }
+
+        return isContain;
     }
 
     isEmpty() {
@@ -149,11 +165,3 @@ class LinkedList {
 }
 
 module.exports = LinkedList;
-
-let linkedList = new LinkedList();
-
-    linkedList.insertAtEnd(1);
-    linkedList.insertAtEnd(2);
-    linkedList.insertAtEnd(3);
-
-    linkedList.deleteAtStart();
