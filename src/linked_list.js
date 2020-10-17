@@ -4,11 +4,11 @@ class LinkedList {
         this._length = 0;
     }
 
-    add(value) {
+    insert(value) {
         
     }
 
-    addAtEnd(value) {
+    insertAtEnd(value) {
         if(this.isEmpty()) {
             this._storage = {
                 value: value,
@@ -30,7 +30,7 @@ class LinkedList {
         this._length++;
     }
 
-    addAtStart(value) {
+    insertAtStart(value) {
         if(this.isEmpty()) {
             this._storage = {
                 value: value,
@@ -71,11 +71,11 @@ module.exports = LinkedList;
 
 let linkedList = new LinkedList();
 
-linkedList.addAtEnd(1);
-linkedList.addAtEnd(2);
-linkedList.addAtEnd(3);
-linkedList.addAtEnd(4);
+linkedList.insertAtEnd(1);
+linkedList.insertAtEnd(2);
+linkedList.insertAtEnd(3);
+linkedList.insertAtEnd(4);
 
-linkedList.addAtStart(5);
+linkedList.insertAtStart(5);
 
 console.log(linkedList);
