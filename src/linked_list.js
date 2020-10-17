@@ -106,7 +106,17 @@ class LinkedList {
     }
 
     deleteAtEnd() {
-        
+        let newLinkedList = new LinkedList();
+
+        let currentElement = this._storage;
+
+        while(currentElement.next) {
+            newLinkedList.insertAtEnd(currentElement.value);
+            currentElement = currentElement.next;
+        }
+
+        this._storage = newLinkedList._storage;
+        this._length--;
     }
 
     deleteAtStart() {
