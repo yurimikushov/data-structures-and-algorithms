@@ -43,9 +43,8 @@ class LinkedList {
     }
 
     insertAfter(afterValue, value) {
-        let prevElement = this._storage;
-
-        let findedElement = false;
+        let prevElement = this._storage,
+            findedElement = false;
 
         while(prevElement.next) {
             if(prevElement.value == afterValue) {
@@ -61,8 +60,7 @@ class LinkedList {
             prevElement.next = {
                 value: value,
                 next: nextElement
-            } 
-            
+            }            
         }
 
         return findedElement;        
