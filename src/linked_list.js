@@ -68,8 +68,41 @@ class LinkedList {
         return findedElement;        
     }
 
-    delete() {
+    delete(value) {
+        let prevElement = this._storage,
+            currentElement,
+            nextElement;
 
+        let findedElement = false;
+
+        while(prevElement.next) {
+            if(prevElement.next) {
+                currentElement = prevElement.next;
+            }
+
+            if(prevElement.next.next) {
+                nextElement = prevElement.next.next;
+            }
+
+            if(!currentElement) {
+                break;
+            }
+
+            if(currentElement.value == value) {
+                findedElement = true;
+                break;
+            }
+
+            prevElement = prevElement.next;
+        }
+
+        if(findedElement) {
+            this._storage = prevElement;
+            this._storage.next = nextElement;  
+            this._length--;
+        }
+
+        return findedElement;
     }
 
     deleteAtEnd() {
