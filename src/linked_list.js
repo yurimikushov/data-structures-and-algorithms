@@ -17,7 +17,7 @@ class LinkedList {
         } else {
             let lastElement = this._storage;
 
-            while(lastElement.next != null) {
+            while(lastElement.next) {
                 lastElement = lastElement.next;
             }
 
