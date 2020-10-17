@@ -120,7 +120,23 @@ class LinkedList {
     }
 
     deleteAtStart() {
+        let currentElement = this._storage;
 
+        if(currentElement.next) {
+            currentElement = currentElement.next;
+        }
+
+        let newLinkedList = new LinkedList();
+
+        while(currentElement.next) {
+            newLinkedList.insertAtEnd(currentElement.value);
+            currentElement = currentElement.next;
+        }
+
+        newLinkedList.insertAtEnd(currentElement.value);
+
+        this._storage = newLinkedList._storage;
+        this._length--;
     }
 
     search() {
@@ -133,3 +149,11 @@ class LinkedList {
 }
 
 module.exports = LinkedList;
+
+let linkedList = new LinkedList();
+
+    linkedList.insertAtEnd(1);
+    linkedList.insertAtEnd(2);
+    linkedList.insertAtEnd(3);
+
+    linkedList.deleteAtStart();

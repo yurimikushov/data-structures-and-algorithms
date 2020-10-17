@@ -85,3 +85,18 @@ test('check deleteAtEnd() method', () => {
     expect(storage.value).toBe(1);
     expect(storage.next.value).toBe(2);
 });
+
+test('check deleteAtStart() method', () => {
+    let linkedList = new LinkedList();
+
+    linkedList.insertAtEnd(1);
+    linkedList.insertAtEnd(2);
+    linkedList.insertAtEnd(3);
+
+    linkedList.deleteAtStart();
+
+    let storage = linkedList._storage;
+
+    expect(storage.value).toBe(2);
+    expect(storage.next.value).toBe(3);
+});
