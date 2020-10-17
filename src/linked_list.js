@@ -60,7 +60,9 @@ class LinkedList {
             prevElement.next = {
                 value: value,
                 next: nextElement
-            }            
+            }   
+            
+            this._length++;
         }
 
         return findedElement;        
