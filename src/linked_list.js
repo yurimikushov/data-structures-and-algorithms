@@ -4,10 +4,6 @@ class LinkedList {
         this._length = 0;
     }
 
-    insert(value) {
-        
-    }
-
     insertAtEnd(value) {
         if(this.isEmpty()) {
             this._storage = {
@@ -46,6 +42,32 @@ class LinkedList {
         this._length++;
     }
 
+    insertAfter(afterValue, value) {
+        let prevElement = this._storage;
+
+        let findedElement = false;
+
+        while(prevElement.next) {
+            if(prevElement.value == afterValue) {
+                findedElement = true;
+                break;
+            }
+            prevElement = prevElement.next;
+        }
+
+        if(findedElement) {
+            let nextElement = prevElement.next;
+
+            prevElement.next = {
+                value: value,
+                next: nextElement
+            } 
+            
+        }
+
+        return findedElement;        
+    }
+
     delete() {
 
     }
@@ -77,5 +99,7 @@ linkedList.insertAtEnd(3);
 linkedList.insertAtEnd(4);
 
 linkedList.insertAtStart(5);
+
+console.log(linkedList.insertAfter(2, 6));
 
 console.log(linkedList);
