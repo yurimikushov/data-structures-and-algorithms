@@ -5,15 +5,15 @@ class Queue {
         this._stack = new Stack();
     }
     
-    add(value) {
-        this._stack.add(value);
+    insert(value) {
+        this._stack.insert(value);
     }
 
     delete() {
         let reverseStack = new Stack();
 
         while(!this._stack.isEmpty()) {
-            reverseStack.add(this._stack.delete());
+            reverseStack.insert(this._stack.delete());
         }
         
         let result = reverseStack.delete();
@@ -21,7 +21,7 @@ class Queue {
         this._stack = new Stack();
 
         while(!reverseStack.isEmpty()) {
-            this._stack.add(reverseStack.delete()); 
+            this._stack.insert(reverseStack.delete()); 
         }
 
         return result;
@@ -35,7 +35,7 @@ class Queue {
         let reverseStack = new Stack();
 
         while(!this._stack.isEmpty()) {
-            reverseStack.add(this._stack.delete());
+            reverseStack.insert(this._stack.delete());
         }
 
         let result = reverseStack.peek();
@@ -43,7 +43,7 @@ class Queue {
         this._stack = new Stack();
 
         while(!reverseStack.isEmpty()) {
-            this._stack.add(reverseStack.delete());
+            this._stack.insert(reverseStack.delete());
         }
         
         return result;

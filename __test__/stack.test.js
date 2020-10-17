@@ -15,9 +15,9 @@ test('(empty stack) delete returns null', () => {
 test('(filled stack) peek returns last element', () => {
     let stack = new Stack();
 
-    stack.add(1);
-    stack.add(2);
-    stack.add(3);
+    stack.insert(1);
+    stack.insert(2);
+    stack.insert(3);
 
     expect(stack.peek()).toBe(3);
 });
@@ -25,9 +25,9 @@ test('(filled stack) peek returns last element', () => {
 test('(filled stack) delete returns last element', () => {
     let stack = new Stack();
 
-    stack.add(1);
-    stack.add(2);
-    stack.add(3);
+    stack.insert(1);
+    stack.insert(2);
+    stack.insert(3);
 
     expect(stack.delete()).toBe(3);
 });
@@ -35,9 +35,9 @@ test('(filled stack) delete returns last element', () => {
 test('filled stack is not empty', () => {
     let stack = new Stack();
 
-    stack.add(1);
-    stack.add(2);
-    stack.add(3);
+    stack.insert(1);
+    stack.insert(2);
+    stack.insert(3);
 
     expect(stack.isEmpty()).toBe(false);
 });
