@@ -90,16 +90,3 @@ class LinkedList {
 }
 
 module.exports = LinkedList;
-
-let linkedList = new LinkedList();
-
-linkedList.insertAtEnd(1);
-linkedList.insertAtEnd(2);
-linkedList.insertAtEnd(3);
-linkedList.insertAtEnd(4);
-
-linkedList.insertAtStart(5);
-
-console.log(linkedList.insertAfter(2, 6));
-
-console.log(linkedList);
