@@ -5,10 +5,7 @@ class LinkedList {
 
     insertAtEnd(value) {
         if(this.isEmpty()) {
-            this._storage = {
-                value: value,
-                next: null
-            }  
+            this._storage = this._newElement(value, null); 
         } else {
             let lastElement = this._storage;
 
@@ -16,24 +13,15 @@ class LinkedList {
                 lastElement = lastElement.next;
             }
 
-            lastElement.next = {
-                value: value,
-                next: null
-            } 
+            lastElement.next = this._newElement(value, null);
         }
     }
 
     insertAtStart(value) {
         if(this.isEmpty()) {
-            this._storage = {
-                value: value,
-                next: null
-            }  
+            this._storage = this._newElement(value, null); 
         } else {
-            this._storage = {
-                value: value,
-                next: this._storage
-            }
+            this._storage = this._newElement(value, this._storage);
         }
     }
 
@@ -50,12 +38,7 @@ class LinkedList {
         }
 
         if(findedElement) {
-            let nextElement = prevElement.next;
-
-            prevElement.next = {
-                value: value,
-                next: nextElement
-            }
+            prevElement.next = this._newElement(value, prevElement.next);
         }
 
         return findedElement;        
@@ -131,6 +114,13 @@ class LinkedList {
 
     isEmpty() {
         return Object.keys(this._storage).length == 0;
+    }
+
+    _newElement(value, next) {
+        return {
+            value: value,
+            next: next
+        } 
     }
 }
 
