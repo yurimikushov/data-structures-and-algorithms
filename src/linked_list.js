@@ -69,40 +69,19 @@ class LinkedList {
     }
 
     delete(value) {
-        let prevElement = this._storage,
-            currentElement,
-            nextElement;
+        let newLinkedList = new LinkedList();
 
-        let findedElement = false;
+        let currentElement = this._storage;
 
-        while(prevElement.next) {
-            if(prevElement.next) {
-                currentElement = prevElement.next;
+        while(currentElement) {
+            if(currentElement.value != value) {
+                newLinkedList.insertAtEnd(currentElement.value);
             }
 
-            if(prevElement.next.next) {
-                nextElement = prevElement.next.next;
-            }
-
-            if(!currentElement) {
-                break;
-            }
-
-            if(currentElement.value == value) {
-                findedElement = true;
-                break;
-            }
-
-            prevElement = prevElement.next;
+            currentElement = currentElement.next;
         }
 
-        if(findedElement) {
-            this._storage = prevElement;
-            this._storage.next = nextElement;  
-            this._length--;
-        }
-
-        return findedElement;
+        this._storage = newLinkedList._storage;
     }
 
     deleteAtEnd() {
