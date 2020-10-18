@@ -1,7 +1,6 @@
 class LinkedList {
     constructor() {
         this._storage = {};
-        this._length = 0;
     }
 
     insertAtEnd(value) {
@@ -22,8 +21,6 @@ class LinkedList {
                 next: null
             } 
         }
-
-        this._length++;
     }
 
     insertAtStart(value) {
@@ -38,8 +35,6 @@ class LinkedList {
                 next: this._storage
             }
         }
-
-        this._length++;
     }
 
     insertAfter(afterValue, value) {
@@ -60,9 +55,7 @@ class LinkedList {
             prevElement.next = {
                 value: value,
                 next: nextElement
-            }   
-            
-            this._length++;
+            }
         }
 
         return findedElement;        
@@ -95,7 +88,6 @@ class LinkedList {
         }
 
         this._storage = newLinkedList._storage;
-        this._length--;
     }
 
     deleteAtStart() {
@@ -115,7 +107,6 @@ class LinkedList {
         newLinkedList.insertAtEnd(currentElement.value);
 
         this._storage = newLinkedList._storage;
-        this._length--;
     }
 
     isContain(value) {
@@ -139,7 +130,7 @@ class LinkedList {
     }
 
     isEmpty() {
-        return this._length == 0;
+        return Object.keys(this._storage).length == 0;
     }
 }
 
