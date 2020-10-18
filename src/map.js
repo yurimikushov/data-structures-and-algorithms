@@ -39,7 +39,26 @@ class Map {
     }
 
     remove(key) {
-        
+        let newStorage = [];
+
+        let removedElement = false;
+
+        for(let i = 0; i < this._length; i++) {
+            if(this._storage[i].key == key) {
+                removedElement = true;
+            } else {
+                newStorage.push({
+                    key: this._storage[i].key,
+                    value: this._storage[i].value
+                });
+            }
+        }
+
+        if(removedElement) {
+            this._length --; 
+        }
+      
+        this._storage = newStorage;
     }
 }
 
