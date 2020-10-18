@@ -26,7 +26,16 @@ class Map {
     }
 
     find(key) {
-        
+        let returnValue = null;
+
+        for(let i = 0; i < this._length; i++) {
+            if(this._storage[i].key == key) {
+                returnValue = this._storage[i].value;
+                break;
+            }
+        }
+
+        return returnValue;        
     }
 
     remove(key) {
