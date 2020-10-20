@@ -31,7 +31,7 @@ describe('check isEmpty() method', () => {
 });
 
 describe('check peek() method', () => {
-    test('(empty stack) peek returns null', () => {
+    test('(empty stack) peek returns undefined', () => {
         expect((new Stack()).peek()).toBe(undefined);
     });
 
@@ -47,7 +47,7 @@ describe('check peek() method', () => {
 });
 
 describe('check delete() method', () => {
-    test('(empty stack) delete returns null', () => {
+    test('(empty stack) delete returns undefined', () => {
         expect((new Stack()).delete()).toBe(undefined);
     });
     
