@@ -8,13 +8,13 @@ describe('check insert() method', () => {
         map.insert(2, 22);
         map.insert(3, 33);
 
-        let expected = [
-            { key: 1, value: 11 },
-            { key: 2, value: 22 },
-            { key: 3, value: 33 }
-        ];
+        let expected = {
+            1: 11,
+            2: 22,
+            3: 33
+        };
 
-        expect(JSON.stringify(map._storage)).toBe(JSON.stringify(expected));
+        expect(map._storage).toEqual(expected);
     });
 
     test('inserting an existing elements', () => {
@@ -26,13 +26,13 @@ describe('check insert() method', () => {
         map.insert(3, 33);
         map.insert(3, 33);
 
-        let expected = [
-            { key: 1, value: 11 },
-            { key: 2, value: 22 },
-            { key: 3, value: 33 }
-        ];
+        let expected = {
+            1: 11,
+            2: 22,
+            3: 33
+        };
 
-        expect(JSON.stringify(map._storage)).toBe(JSON.stringify(expected));
+        expect(map._storage).toEqual(expected);
     });
 });
 
@@ -47,16 +47,10 @@ describe('check find() method', () => {
         expect(map.find(1)).toBe(11);
         expect(map.find(2)).toBe(22);
         expect(map.find(3)).toBe(33);
-        expect(map.find(4)).toBe(null);
     });
 
     test('finding a nonexistent element', () => {
-        let map = new Map();
-
-        map.insert(1, 11);
-        map.insert(2, 22);
-
-        expect(map.find(3)).toBe(null);
+        expect((new Map()).find(1)).toBe(undefined);
     });
 });
 
@@ -70,12 +64,12 @@ describe('check remove() method', () => {
 
         map.remove(2);
 
-        let expected = [
-            { key: 1, value: 11 },
-            { key: 3, value: 33 }
-        ];
+        let expected = {
+            1: 11,
+            3: 33
+        };
 
-        expect(JSON.stringify(map._storage)).toBe(JSON.stringify(expected));
+        expect(map._storage).toEqual(expected);
     });
 
     test('removing all elements', () => {
@@ -89,6 +83,6 @@ describe('check remove() method', () => {
         map.remove(2);
         map.remove(3);
 
-        expect(JSON.stringify(map._storage)).toBe(JSON.stringify([]));
+        expect(Object.keys(map._storage).length).toBe(0);
     });
 });
