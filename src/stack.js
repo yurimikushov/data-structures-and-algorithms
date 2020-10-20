@@ -10,24 +10,19 @@ class Stack {
     }
 
     delete() {
-        if(this.isEmpty()) {
-            return null;
-        } else {
+        if(!this.isEmpty()) {
             this._length --;
-            return this._storage.pop();
-        }
+        }  
+        
+        return this._storage.pop();
     }
 
     isEmpty() {
-        return this._length == 0; 
+        return this._length == 0;
     }
 
     peek() {
-        if(this.isEmpty()) {
-            return null;
-        } else {
-            return this._storage[this._length - 1];
-        }
+        return this._storage[this._length - 1];
     }
 }
 

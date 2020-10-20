@@ -5,11 +5,11 @@ test('new queue is empty', () => {
 });
 
 test('(empty queue) peek returns null', () => {
-    expect((new Queue()).peek()).toBe(null);
+    expect((new Queue()).peek()).toBe(undefined);
 });
 
 test('(empty queue) delete returns null', () => {
-    expect((new Queue()).delete()).toBe(null);
+    expect((new Queue()).delete()).toBe(undefined);
 });
 
 test('(filled queue) peek returns first element', () => {
