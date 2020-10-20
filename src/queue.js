@@ -10,12 +10,11 @@ class Queue {
     }
 
     delete() {
-        if(this.isEmpty()) {
-            return null;
-        } else {
+        if(!this.isEmpty()) {
             this._length --;
-            return this._storage.shift();
-        }
+        }  
+        
+        return this._storage.shift();
     }
 
     isEmpty() {
@@ -23,11 +22,7 @@ class Queue {
     }
 
     peek() {
-        if(this.isEmpty()) {
-            return null;
-        } else {
-            return this._storage[0];
-        }
+        return this._storage[0];
     }
 }
 
