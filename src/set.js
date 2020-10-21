@@ -13,11 +13,15 @@ class Set {
         }
     }
 
-    delete() {
+    delete(value) {
+        let index = this._storage.indexOf(value);
 
+        if(index != -1) {
+            this._storage.splice(index, 1);
+        }
     }
 
-    union(set){
+    union(set) {
 
     }
 
