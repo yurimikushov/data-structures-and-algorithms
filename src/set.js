@@ -8,7 +8,7 @@ class Set {
     }
 
     insert(value) {
-        if(!this.has(value)) {
+        if (!this.has(value)) {
             this._storage.push(value);
         }
     }
@@ -16,26 +16,18 @@ class Set {
     delete(value) {
         let index = this._storage.indexOf(value);
 
-        if(index != -1) {
+        if (index != -1) {
             this._storage.splice(index, 1);
         }
     }
 
-    union(set) {
+    union(set) {}
 
-    }
+    intersection(set) {}
 
-    intersection(set) {
+    difference() {}
 
-    } 
-
-    difference() {
-
-    } 
-
-    subset(set) {
-
-    }
+    subset(set) {}
 }
 
 module.exports = Set;
