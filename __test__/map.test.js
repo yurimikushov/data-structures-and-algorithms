@@ -1,4 +1,4 @@
-const Map = require("./../src/map.js");
+const Map = require('./../src/map.js');
 
 describe('check insert() method', () => {
     test('inserting a some elements', () => {
@@ -11,7 +11,7 @@ describe('check insert() method', () => {
         let expected = {
             1: 11,
             2: 22,
-            3: 33
+            3: 33,
         };
 
         expect(map._storage).toEqual(expected);
@@ -29,7 +29,7 @@ describe('check insert() method', () => {
         let expected = {
             1: 11,
             2: 22,
-            3: 33
+            3: 33,
         };
 
         expect(map._storage).toEqual(expected);
@@ -50,7 +50,7 @@ describe('check find() method', () => {
     });
 
     test('finding a nonexistent element', () => {
-        expect((new Map()).find(1)).toBe(undefined);
+        expect(new Map().find(1)).toBe(undefined);
     });
 });
 
@@ -66,7 +66,7 @@ describe('check remove() method', () => {
 
         let expected = {
             1: 11,
-            3: 33
+            3: 33,
         };
 
         expect(map._storage).toEqual(expected);

@@ -6,14 +6,14 @@ class Stack {
 
     insert(value) {
         this._storage.push(value);
-        this._length ++;
+        this._length++;
     }
 
     delete() {
-        if(!this.isEmpty()) {
-            this._length --;
-        }  
-        
+        if (!this.isEmpty()) {
+            this._length--;
+        }
+
         return this._storage.pop();
     }
 

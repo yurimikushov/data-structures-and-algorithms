@@ -4,12 +4,12 @@ class LinkedList {
     }
 
     insertAtEnd(value) {
-        if(this.isEmpty()) {
-            this._storage = this._newElement(value, null); 
+        if (this.isEmpty()) {
+            this._storage = this._newElement(value, null);
         } else {
             let lastElement = this._storage;
 
-            while(lastElement.next) {
+            while (lastElement.next) {
                 lastElement = lastElement.next;
             }
 
@@ -18,8 +18,8 @@ class LinkedList {
     }
 
     insertAtStart(value) {
-        if(this.isEmpty()) {
-            this._storage = this._newElement(value, null); 
+        if (this.isEmpty()) {
+            this._storage = this._newElement(value, null);
         } else {
             this._storage = this._newElement(value, this._storage);
         }
@@ -29,19 +29,19 @@ class LinkedList {
         let prevElement = this._storage,
             findedElement = false;
 
-        while(prevElement.next) {
-            if(prevElement.value == afterValue) {
+        while (prevElement.next) {
+            if (prevElement.value == afterValue) {
                 findedElement = true;
                 break;
             }
             prevElement = prevElement.next;
         }
 
-        if(findedElement) {
+        if (findedElement) {
             prevElement.next = this._newElement(value, prevElement.next);
         }
 
-        return findedElement;        
+        return findedElement;
     }
 
     delete(value) {
@@ -49,8 +49,8 @@ class LinkedList {
 
         let currentElement = this._storage;
 
-        while(currentElement) {
-            if(currentElement.value != value) {
+        while (currentElement) {
+            if (currentElement.value != value) {
                 newLinkedList.insertAtEnd(currentElement.value);
             }
 
@@ -65,7 +65,7 @@ class LinkedList {
 
         let currentElement = this._storage;
 
-        while(currentElement.next) {
+        while (currentElement.next) {
             newLinkedList.insertAtEnd(currentElement.value);
             currentElement = currentElement.next;
         }
@@ -76,13 +76,13 @@ class LinkedList {
     deleteAtStart() {
         let currentElement = this._storage;
 
-        if(currentElement.next) {
+        if (currentElement.next) {
             currentElement = currentElement.next;
         }
 
         let newLinkedList = new LinkedList();
 
-        while(currentElement.next) {
+        while (currentElement.next) {
             newLinkedList.insertAtEnd(currentElement.value);
             currentElement = currentElement.next;
         }
@@ -93,7 +93,7 @@ class LinkedList {
     }
 
     isContain(value) {
-        if(this.isEmpty()) {
+        if (this.isEmpty()) {
             return false;
         }
 
@@ -101,8 +101,8 @@ class LinkedList {
 
         let currentElement = this._storage;
 
-        while(currentElement) {
-            if(currentElement.value == value) {
+        while (currentElement) {
+            if (currentElement.value == value) {
                 isContain = true;
                 break;
             }
@@ -119,8 +119,8 @@ class LinkedList {
     _newElement(value, next) {
         return {
             value: value,
-            next: next
-        } 
+            next: next,
+        };
     }
 }
 

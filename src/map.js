@@ -5,8 +5,8 @@ class Map {
     }
 
     insert(key, value) {
-        if(!(key in this._storage)) {
-            this._length ++;
+        if (!(key in this._storage)) {
+            this._length++;
         }
 
         this._storage[key] = value;

@@ -1,7 +1,7 @@
-const LinkedList = require("./../src/linked_list.js");
+const LinkedList = require('./../src/linked_list.js');
 
 test('new linked list is empty', () => {
-    expect((new LinkedList()).isEmpty()).toBe(true);
+    expect(new LinkedList().isEmpty()).toBe(true);
 });
 
 test('check insertAtEnd() method', () => {
@@ -107,7 +107,7 @@ test('check isContain() method', () => {
     linkedList.insertAtEnd(1);
     linkedList.insertAtEnd(2);
     linkedList.insertAtEnd(3);
-    
+
     expect(linkedList.isContain(2)).toBe(true);
     expect(linkedList.isContain(4)).toBe(false);
 });

@@ -1,10 +1,10 @@
-const Stack = require("./stack.js");
+const Stack = require('./stack.js');
 
 class Queue {
     constructor() {
         this._stack = new Stack();
     }
-    
+
     insert(value) {
         this._stack.insert(value);
     }
@@ -12,21 +12,21 @@ class Queue {
     delete() {
         let reverseStack = new Stack();
 
-        while(!this._stack.isEmpty()) {
+        while (!this._stack.isEmpty()) {
             reverseStack.insert(this._stack.delete());
         }
-        
+
         let result = reverseStack.delete();
 
         this._stack = new Stack();
 
-        while(!reverseStack.isEmpty()) {
-            this._stack.insert(reverseStack.delete()); 
+        while (!reverseStack.isEmpty()) {
+            this._stack.insert(reverseStack.delete());
         }
 
         return result;
     }
-    
+
     isEmpty() {
         return this._stack.isEmpty();
     }
@@ -34,7 +34,7 @@ class Queue {
     peek() {
         let reverseStack = new Stack();
 
-        while(!this._stack.isEmpty()) {
+        while (!this._stack.isEmpty()) {
             reverseStack.insert(this._stack.delete());
         }
 
@@ -42,10 +42,10 @@ class Queue {
 
         this._stack = new Stack();
 
-        while(!reverseStack.isEmpty()) {
+        while (!reverseStack.isEmpty()) {
             this._stack.insert(reverseStack.delete());
         }
-        
+
         return result;
     }
 }
