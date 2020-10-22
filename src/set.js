@@ -29,7 +29,17 @@ class Set {
         }
     }
 
-    intersection(set) {}
+    intersection(set) {
+        let result = new Set();
+
+        for (let value of set.toArray()) {
+            if (this.has(value)) {
+                result.insert(value);
+            }
+        }
+
+        return result;
+    }
 
     difference() {}
 

@@ -82,3 +82,24 @@ describe('check unite() method', () => {
         expect(set1._storage[3]).toBe(4);
     });
 });
+
+describe('check intersection() method', () => {
+    test('result set contains two elements', () => {
+        let set1 = new Set();
+
+        set1.insert(1);
+        set1.insert(2);
+        set1.insert(3);
+
+        let set2 = new Set();
+
+        set2.insert(2);
+        set2.insert(3);
+        set2.insert(4);
+
+        let set3 = set1.intersection(set2);
+
+        expect(set3._storage[0]).toBe(2);
+        expect(set3._storage[1]).toBe(3);
+    });
+});
