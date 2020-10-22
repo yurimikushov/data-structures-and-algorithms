@@ -37,7 +37,7 @@ describe('check insert() method', () => {
 });
 
 describe('check get() method', () => {
-    test('geting an existing element', () => {
+    test('getting an existing element', () => {
         let map = new Map();
 
         map.insert(1, 11);
@@ -49,7 +49,7 @@ describe('check get() method', () => {
         expect(map.get(3)).toBe(33);
     });
 
-    test('geting a nonexistent element', () => {
+    test('getting a nonexistent element', () => {
         expect(new Map().get(1)).toBe(undefined);
     });
 });
