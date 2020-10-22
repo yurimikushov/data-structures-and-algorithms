@@ -36,21 +36,21 @@ describe('check insert() method', () => {
     });
 });
 
-describe('check find() method', () => {
-    test('finding an existing element', () => {
+describe('check get() method', () => {
+    test('geting an existing element', () => {
         let map = new Map();
 
         map.insert(1, 11);
         map.insert(2, 22);
         map.insert(3, 33);
 
-        expect(map.find(1)).toBe(11);
-        expect(map.find(2)).toBe(22);
-        expect(map.find(3)).toBe(33);
+        expect(map.get(1)).toBe(11);
+        expect(map.get(2)).toBe(22);
+        expect(map.get(3)).toBe(33);
     });
 
-    test('finding a nonexistent element', () => {
-        expect(new Map().find(1)).toBe(undefined);
+    test('geting a nonexistent element', () => {
+        expect(new Map().get(1)).toBe(undefined);
     });
 });
 

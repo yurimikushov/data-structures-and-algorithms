@@ -7,7 +7,7 @@ class Map {
         this._storage[key] = value;
     }
 
-    find(key) {
+    get(key) {
         return this._storage[key];
     }
 
