@@ -60,3 +60,25 @@ describe('check delete() method', () => {
         expect(set._storage[1]).toBe(4);
     });
 });
+
+describe('check unite() method', () => {
+    test('set contains four elements', () => {
+        let set1 = new Set();
+
+        set1.insert(1);
+        set1.insert(2);
+        set1.insert(3);
+
+        let set2 = new Set();
+
+        set2.insert(3);
+        set2.insert(4);
+
+        set1.unite(set2);
+
+        expect(set1._storage[0]).toBe(1);
+        expect(set1._storage[1]).toBe(2);
+        expect(set1._storage[2]).toBe(3);
+        expect(set1._storage[3]).toBe(4);
+    });
+});

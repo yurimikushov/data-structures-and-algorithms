@@ -21,13 +21,23 @@ class Set {
         }
     }
 
-    union(set) {}
+    unite(set) {
+        for (let value of set.toArray()) {
+            if (!this.has(value)) {
+                this.insert(value);
+            }
+        }
+    }
 
     intersection(set) {}
 
     difference() {}
 
     subset(set) {}
+
+    toArray() {
+        return this._storage;
+    }
 }
 
 module.exports = Set;
