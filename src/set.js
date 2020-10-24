@@ -41,7 +41,23 @@ class Set {
         return result;
     }
 
-    difference() {}
+    difference(set) {
+        let result = new Set();
+
+        for (let value of this.toArray()) {
+            if (!set.has(value)) {
+                result.insert(value);
+            }
+        }
+
+        for (let value of set.toArray()) {
+            if (!this.has(value)) {
+                result.insert(value);
+            }
+        }
+
+        return result;
+    }
 
     subset(set) {}
 

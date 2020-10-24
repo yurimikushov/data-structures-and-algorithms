@@ -103,3 +103,24 @@ describe('check intersection() method', () => {
         expect(set3._storage[1]).toBe(3);
     });
 });
+
+describe('check difference() method', () => {
+    test('result set contains three elements', () => {
+        let set1 = new Set();
+
+        set1.insert(1);
+        set1.insert(2);
+
+        let set2 = new Set();
+
+        set2.insert(2);
+        set2.insert(3);
+        set2.insert(4);
+
+        let set3 = set1.difference(set2);
+
+        expect(set3._storage[0]).toBe(1);
+        expect(set3._storage[1]).toBe(3);
+        expect(set3._storage[2]).toBe(4);
+    });
+});
