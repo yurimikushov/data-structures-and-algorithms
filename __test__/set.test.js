@@ -124,3 +124,36 @@ describe('check difference() method', () => {
         expect(set3._storage[2]).toBe(4);
     });
 });
+
+describe('check subset() method', () => {
+    test('set1 is subset set2', () => {
+        let set1 = new Set();
+
+        set1.insert(1);
+        set1.insert(2);
+        set1.insert(3);
+
+        let set2 = new Set();
+
+        set2.insert(1);
+        set2.insert(2);
+        set2.insert(3);
+        set2.insert(4);
+
+        expect(set1.subset(set2)).toBe(true);
+    });
+
+    test('set1 is not subset set2', () => {
+        let set1 = new Set();
+
+        set1.insert(1);
+        set1.insert(2);
+        set1.insert(3);
+
+        let set2 = new Set();
+
+        set2.insert(1);
+
+        expect(set1.subset(set2)).toBe(false);
+    });
+});

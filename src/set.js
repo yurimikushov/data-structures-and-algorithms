@@ -59,7 +59,15 @@ class Set {
         return result;
     }
 
-    subset(set) {}
+    subset(set) {
+        for (let value of this.toArray()) {
+            if (!set.has(value)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
     toArray() {
         return this._storage;
