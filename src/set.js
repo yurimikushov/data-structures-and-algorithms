@@ -60,13 +60,7 @@ class Set {
     }
 
     subset(set) {
-        for (let value of this.toArray()) {
-            if (!set.has(value)) {
-                return false;
-            }
-        }
-
-        return true;
+        return this._storage.every(value => set.has(value));
     }
 
     toArray() {
