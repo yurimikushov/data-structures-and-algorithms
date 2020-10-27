@@ -1,4 +1,4 @@
-const Stack = require('./../src/stack.js');
+const Stack = require('./../../src/data-structures/stack.js');
 
 describe('check insert() method', () => {
     test('stack contains three elements', () => {

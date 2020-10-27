@@ -1,4 +1,4 @@
-const Map = require('./../src/map.js');
+const Map = require('./../../src/data-structures/map.js');
 
 describe('check insert() method', () => {
     test('inserting a some elements', () => {
