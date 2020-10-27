@@ -4,11 +4,13 @@
   "description": "",
   "main": "",
   "scripts": {
+    "s-test": "eslint .",
     "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "eslint": "^7.12.1",
     "jest": "^26.5.3"
   }
 }
