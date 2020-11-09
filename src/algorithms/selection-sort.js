@@ -1,23 +1,25 @@
 function selectionSort(arr) {
   const smallest = (arr) => {
-    let smallestId = 0,
+    let smallestID = 0,
       smallestValue = arr[0]
 
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] < smallestValue) {
-        smallestId = i
         smallestValue = arr[i]
+        smallestID = i
       }
     }
 
-    return smallestId
+    return smallestID
   }
 
   let result = []
 
   while (arr.length) {
-    result.push(arr[smallest(arr)])
-    arr.splice(smallest(arr), 1)
+    let smallestID = smallest(arr)
+
+    result.push(arr[smallestID])
+    arr.splice(smallestID, 1)
   }
 
   return result
