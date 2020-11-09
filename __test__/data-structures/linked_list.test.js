@@ -1,113 +1,113 @@
-const LinkedList = require('./../../src/data-structures/linked_list.js');
+const LinkedList = require('./../../src/data-structures/linked_list.js')
 
 test('new linked list is empty', () => {
-    expect(new LinkedList().isEmpty()).toBe(true);
-});
+  expect(new LinkedList().isEmpty()).toBe(true)
+})
 
 test('check insertAtEnd() method', () => {
-    let linkedList = new LinkedList();
+  let linkedList = new LinkedList()
 
-    linkedList.insertAtEnd(1);
-    linkedList.insertAtEnd(2);
-    linkedList.insertAtEnd(3);
+  linkedList.insertAtEnd(1)
+  linkedList.insertAtEnd(2)
+  linkedList.insertAtEnd(3)
 
-    let storage = linkedList._storage;
+  let storage = linkedList._storage
 
-    expect(storage.value).toBe(1);
-    expect(storage.next.value).toBe(2);
-    expect(storage.next.next.value).toBe(3);
-});
+  expect(storage.value).toBe(1)
+  expect(storage.next.value).toBe(2)
+  expect(storage.next.next.value).toBe(3)
+})
 
 test('check insertAtStart() method', () => {
-    let linkedList = new LinkedList();
+  let linkedList = new LinkedList()
 
-    linkedList.insertAtEnd(1);
-    linkedList.insertAtEnd(2);
-    linkedList.insertAtEnd(3);
+  linkedList.insertAtEnd(1)
+  linkedList.insertAtEnd(2)
+  linkedList.insertAtEnd(3)
 
-    linkedList.insertAtStart(4);
+  linkedList.insertAtStart(4)
 
-    let storage = linkedList._storage;
+  let storage = linkedList._storage
 
-    expect(storage.value).toBe(4);
-    expect(storage.next.value).toBe(1);
-    expect(storage.next.next.value).toBe(2);
-    expect(storage.next.next.next.value).toBe(3);
-});
+  expect(storage.value).toBe(4)
+  expect(storage.next.value).toBe(1)
+  expect(storage.next.next.value).toBe(2)
+  expect(storage.next.next.next.value).toBe(3)
+})
 
 test('check insertAfter() method', () => {
-    let linkedList = new LinkedList();
+  let linkedList = new LinkedList()
 
-    linkedList.insertAtEnd(1);
-    linkedList.insertAtEnd(2);
-    linkedList.insertAtEnd(3);
-    linkedList.insertAtEnd(4);
+  linkedList.insertAtEnd(1)
+  linkedList.insertAtEnd(2)
+  linkedList.insertAtEnd(3)
+  linkedList.insertAtEnd(4)
 
-    linkedList.insertAfter(2, 5);
+  linkedList.insertAfter(2, 5)
 
-    let storage = linkedList._storage;
+  let storage = linkedList._storage
 
-    expect(storage.value).toBe(1);
-    expect(storage.next.value).toBe(2);
-    expect(storage.next.next.value).toBe(5);
-    expect(storage.next.next.next.value).toBe(3);
-    expect(storage.next.next.next.next.value).toBe(4);
-});
+  expect(storage.value).toBe(1)
+  expect(storage.next.value).toBe(2)
+  expect(storage.next.next.value).toBe(5)
+  expect(storage.next.next.next.value).toBe(3)
+  expect(storage.next.next.next.next.value).toBe(4)
+})
 
 test('check delete() method', () => {
-    let linkedList = new LinkedList();
+  let linkedList = new LinkedList()
 
-    linkedList.insertAtEnd(1);
-    linkedList.insertAtEnd(2);
-    linkedList.insertAtEnd(3);
-    linkedList.insertAtEnd(4);
+  linkedList.insertAtEnd(1)
+  linkedList.insertAtEnd(2)
+  linkedList.insertAtEnd(3)
+  linkedList.insertAtEnd(4)
 
-    linkedList.delete(1);
-    linkedList.delete(2);
+  linkedList.delete(1)
+  linkedList.delete(2)
 
-    let storage = linkedList._storage;
+  let storage = linkedList._storage
 
-    expect(storage.value).toBe(3);
-    expect(storage.next.value).toBe(4);
-});
+  expect(storage.value).toBe(3)
+  expect(storage.next.value).toBe(4)
+})
 
 test('check deleteAtEnd() method', () => {
-    let linkedList = new LinkedList();
+  let linkedList = new LinkedList()
 
-    linkedList.insertAtEnd(1);
-    linkedList.insertAtEnd(2);
-    linkedList.insertAtEnd(3);
+  linkedList.insertAtEnd(1)
+  linkedList.insertAtEnd(2)
+  linkedList.insertAtEnd(3)
 
-    linkedList.deleteAtEnd();
+  linkedList.deleteAtEnd()
 
-    let storage = linkedList._storage;
+  let storage = linkedList._storage
 
-    expect(storage.value).toBe(1);
-    expect(storage.next.value).toBe(2);
-});
+  expect(storage.value).toBe(1)
+  expect(storage.next.value).toBe(2)
+})
 
 test('check deleteAtStart() method', () => {
-    let linkedList = new LinkedList();
+  let linkedList = new LinkedList()
 
-    linkedList.insertAtEnd(1);
-    linkedList.insertAtEnd(2);
-    linkedList.insertAtEnd(3);
+  linkedList.insertAtEnd(1)
+  linkedList.insertAtEnd(2)
+  linkedList.insertAtEnd(3)
 
-    linkedList.deleteAtStart();
+  linkedList.deleteAtStart()
 
-    let storage = linkedList._storage;
+  let storage = linkedList._storage
 
-    expect(storage.value).toBe(2);
-    expect(storage.next.value).toBe(3);
-});
+  expect(storage.value).toBe(2)
+  expect(storage.next.value).toBe(3)
+})
 
 test('check isContain() method', () => {
-    let linkedList = new LinkedList();
+  let linkedList = new LinkedList()
 
-    linkedList.insertAtEnd(1);
-    linkedList.insertAtEnd(2);
-    linkedList.insertAtEnd(3);
+  linkedList.insertAtEnd(1)
+  linkedList.insertAtEnd(2)
+  linkedList.insertAtEnd(3)
 
-    expect(linkedList.isContain(2)).toBe(true);
-    expect(linkedList.isContain(4)).toBe(false);
-});
+  expect(linkedList.isContain(2)).toBe(true)
+  expect(linkedList.isContain(4)).toBe(false)
+})

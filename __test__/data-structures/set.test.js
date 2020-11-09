@@ -1,159 +1,159 @@
-const Set = require('./../../src/data-structures/set.js');
+const Set = require('./../../src/data-structures/set.js')
 
 describe('check insert() method', () => {
-    test('set contains three elements', () => {
-        let set = new Set();
+  test('set contains three elements', () => {
+    let set = new Set()
 
-        set.insert(1);
-        set.insert(2);
-        set.insert(3);
+    set.insert(1)
+    set.insert(2)
+    set.insert(3)
 
-        expect(set._storage[0]).toBe(1);
-        expect(set._storage[1]).toBe(2);
-        expect(set._storage[2]).toBe(3);
-    });
-});
+    expect(set._storage[0]).toBe(1)
+    expect(set._storage[1]).toBe(2)
+    expect(set._storage[2]).toBe(3)
+  })
+})
 
 describe('check has() method', () => {
-    test('set dont has elements', () => {
-        expect(new Set().has(1)).toBe(false);
-    });
+  test('set dont has elements', () => {
+    expect(new Set().has(1)).toBe(false)
+  })
 
-    test('set has a some elements', () => {
-        let set = new Set();
+  test('set has a some elements', () => {
+    let set = new Set()
 
-        set.insert(1);
-        set.insert(2);
+    set.insert(1)
+    set.insert(2)
 
-        expect(set.has(1)).toBe(true);
-        expect(set.has(2)).toBe(true);
-    });
-});
+    expect(set.has(1)).toBe(true)
+    expect(set.has(2)).toBe(true)
+  })
+})
 
 describe('check delete() method', () => {
-    test('delete nonexisten element', () => {
-        let set = new Set();
+  test('delete nonexisten element', () => {
+    let set = new Set()
 
-        set.insert(1);
-        set.insert(2);
-        set.insert(3);
+    set.insert(1)
+    set.insert(2)
+    set.insert(3)
 
-        set.delete(4);
+    set.delete(4)
 
-        expect(set._storage[0]).toBe(1);
-        expect(set._storage[1]).toBe(2);
-        expect(set._storage[2]).toBe(3);
-    });
+    expect(set._storage[0]).toBe(1)
+    expect(set._storage[1]).toBe(2)
+    expect(set._storage[2]).toBe(3)
+  })
 
-    test('delete existing element', () => {
-        let set = new Set();
+  test('delete existing element', () => {
+    let set = new Set()
 
-        set.insert(1);
-        set.insert(2);
-        set.insert(3);
-        set.insert(4);
+    set.insert(1)
+    set.insert(2)
+    set.insert(3)
+    set.insert(4)
 
-        set.delete(2);
-        set.delete(3);
+    set.delete(2)
+    set.delete(3)
 
-        expect(set._storage[0]).toBe(1);
-        expect(set._storage[1]).toBe(4);
-    });
-});
+    expect(set._storage[0]).toBe(1)
+    expect(set._storage[1]).toBe(4)
+  })
+})
 
 describe('check unite() method', () => {
-    test('set contains four elements', () => {
-        let set1 = new Set();
+  test('set contains four elements', () => {
+    let set1 = new Set()
 
-        set1.insert(1);
-        set1.insert(2);
-        set1.insert(3);
+    set1.insert(1)
+    set1.insert(2)
+    set1.insert(3)
 
-        let set2 = new Set();
+    let set2 = new Set()
 
-        set2.insert(3);
-        set2.insert(4);
+    set2.insert(3)
+    set2.insert(4)
 
-        set1.unite(set2);
+    set1.unite(set2)
 
-        expect(set1._storage[0]).toBe(1);
-        expect(set1._storage[1]).toBe(2);
-        expect(set1._storage[2]).toBe(3);
-        expect(set1._storage[3]).toBe(4);
-    });
-});
+    expect(set1._storage[0]).toBe(1)
+    expect(set1._storage[1]).toBe(2)
+    expect(set1._storage[2]).toBe(3)
+    expect(set1._storage[3]).toBe(4)
+  })
+})
 
 describe('check intersection() method', () => {
-    test('result set contains two elements', () => {
-        let set1 = new Set();
+  test('result set contains two elements', () => {
+    let set1 = new Set()
 
-        set1.insert(1);
-        set1.insert(2);
-        set1.insert(3);
+    set1.insert(1)
+    set1.insert(2)
+    set1.insert(3)
 
-        let set2 = new Set();
+    let set2 = new Set()
 
-        set2.insert(2);
-        set2.insert(3);
-        set2.insert(4);
+    set2.insert(2)
+    set2.insert(3)
+    set2.insert(4)
 
-        let set3 = set1.intersection(set2);
+    let set3 = set1.intersection(set2)
 
-        expect(set3._storage[0]).toBe(2);
-        expect(set3._storage[1]).toBe(3);
-    });
-});
+    expect(set3._storage[0]).toBe(2)
+    expect(set3._storage[1]).toBe(3)
+  })
+})
 
 describe('check difference() method', () => {
-    test('result set contains three elements', () => {
-        let set1 = new Set();
+  test('result set contains three elements', () => {
+    let set1 = new Set()
 
-        set1.insert(1);
-        set1.insert(2);
+    set1.insert(1)
+    set1.insert(2)
 
-        let set2 = new Set();
+    let set2 = new Set()
 
-        set2.insert(2);
-        set2.insert(3);
-        set2.insert(4);
+    set2.insert(2)
+    set2.insert(3)
+    set2.insert(4)
 
-        let set3 = set1.difference(set2);
+    let set3 = set1.difference(set2)
 
-        expect(set3._storage[0]).toBe(1);
-        expect(set3._storage[1]).toBe(3);
-        expect(set3._storage[2]).toBe(4);
-    });
-});
+    expect(set3._storage[0]).toBe(1)
+    expect(set3._storage[1]).toBe(3)
+    expect(set3._storage[2]).toBe(4)
+  })
+})
 
 describe('check subset() method', () => {
-    test('set1 is subset set2', () => {
-        let set1 = new Set();
+  test('set1 is subset set2', () => {
+    let set1 = new Set()
 
-        set1.insert(1);
-        set1.insert(2);
-        set1.insert(3);
+    set1.insert(1)
+    set1.insert(2)
+    set1.insert(3)
 
-        let set2 = new Set();
+    let set2 = new Set()
 
-        set2.insert(1);
-        set2.insert(2);
-        set2.insert(3);
-        set2.insert(4);
+    set2.insert(1)
+    set2.insert(2)
+    set2.insert(3)
+    set2.insert(4)
 
-        expect(set1.subset(set2)).toBe(true);
-    });
+    expect(set1.subset(set2)).toBe(true)
+  })
 
-    test('set1 is not subset set2', () => {
-        let set1 = new Set();
+  test('set1 is not subset set2', () => {
+    let set1 = new Set()
 
-        set1.insert(1);
-        set1.insert(2);
-        set1.insert(3);
+    set1.insert(1)
+    set1.insert(2)
+    set1.insert(3)
 
-        let set2 = new Set();
+    let set2 = new Set()
 
-        set2.insert(1);
+    set2.insert(1)
 
-        expect(set1.subset(set2)).toBe(false);
-    });
-});
+    expect(set1.subset(set2)).toBe(false)
+  })
+})

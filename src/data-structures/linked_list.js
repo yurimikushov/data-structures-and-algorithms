@@ -1,127 +1,127 @@
 class LinkedList {
-    constructor() {
-        this._storage = {};
+  constructor() {
+    this._storage = {}
+  }
+
+  insertAtEnd(value) {
+    if (this.isEmpty()) {
+      this._storage = this._newElement(value, null)
+    } else {
+      let lastElement = this._storage
+
+      while (lastElement.next) {
+        lastElement = lastElement.next
+      }
+
+      lastElement.next = this._newElement(value, null)
+    }
+  }
+
+  insertAtStart(value) {
+    if (this.isEmpty()) {
+      this._storage = this._newElement(value, null)
+    } else {
+      this._storage = this._newElement(value, this._storage)
+    }
+  }
+
+  insertAfter(afterValue, value) {
+    let prevElement = this._storage,
+      findedElement = false
+
+    while (prevElement.next) {
+      if (prevElement.value == afterValue) {
+        findedElement = true
+        break
+      }
+      prevElement = prevElement.next
     }
 
-    insertAtEnd(value) {
-        if (this.isEmpty()) {
-            this._storage = this._newElement(value, null);
-        } else {
-            let lastElement = this._storage;
-
-            while (lastElement.next) {
-                lastElement = lastElement.next;
-            }
-
-            lastElement.next = this._newElement(value, null);
-        }
+    if (findedElement) {
+      prevElement.next = this._newElement(value, prevElement.next)
     }
 
-    insertAtStart(value) {
-        if (this.isEmpty()) {
-            this._storage = this._newElement(value, null);
-        } else {
-            this._storage = this._newElement(value, this._storage);
-        }
+    return findedElement
+  }
+
+  delete(value) {
+    let newLinkedList = new LinkedList()
+
+    let currentElement = this._storage
+
+    while (currentElement) {
+      if (currentElement.value != value) {
+        newLinkedList.insertAtEnd(currentElement.value)
+      }
+
+      currentElement = currentElement.next
     }
 
-    insertAfter(afterValue, value) {
-        let prevElement = this._storage,
-            findedElement = false;
+    this._storage = newLinkedList._storage
+  }
 
-        while (prevElement.next) {
-            if (prevElement.value == afterValue) {
-                findedElement = true;
-                break;
-            }
-            prevElement = prevElement.next;
-        }
+  deleteAtEnd() {
+    let newLinkedList = new LinkedList()
 
-        if (findedElement) {
-            prevElement.next = this._newElement(value, prevElement.next);
-        }
+    let currentElement = this._storage
 
-        return findedElement;
+    while (currentElement.next) {
+      newLinkedList.insertAtEnd(currentElement.value)
+      currentElement = currentElement.next
     }
 
-    delete(value) {
-        let newLinkedList = new LinkedList();
+    this._storage = newLinkedList._storage
+  }
 
-        let currentElement = this._storage;
+  deleteAtStart() {
+    let currentElement = this._storage
 
-        while (currentElement) {
-            if (currentElement.value != value) {
-                newLinkedList.insertAtEnd(currentElement.value);
-            }
-
-            currentElement = currentElement.next;
-        }
-
-        this._storage = newLinkedList._storage;
+    if (currentElement.next) {
+      currentElement = currentElement.next
     }
 
-    deleteAtEnd() {
-        let newLinkedList = new LinkedList();
+    let newLinkedList = new LinkedList()
 
-        let currentElement = this._storage;
-
-        while (currentElement.next) {
-            newLinkedList.insertAtEnd(currentElement.value);
-            currentElement = currentElement.next;
-        }
-
-        this._storage = newLinkedList._storage;
+    while (currentElement.next) {
+      newLinkedList.insertAtEnd(currentElement.value)
+      currentElement = currentElement.next
     }
 
-    deleteAtStart() {
-        let currentElement = this._storage;
+    newLinkedList.insertAtEnd(currentElement.value)
 
-        if (currentElement.next) {
-            currentElement = currentElement.next;
-        }
+    this._storage = newLinkedList._storage
+  }
 
-        let newLinkedList = new LinkedList();
-
-        while (currentElement.next) {
-            newLinkedList.insertAtEnd(currentElement.value);
-            currentElement = currentElement.next;
-        }
-
-        newLinkedList.insertAtEnd(currentElement.value);
-
-        this._storage = newLinkedList._storage;
+  isContain(value) {
+    if (this.isEmpty()) {
+      return false
     }
 
-    isContain(value) {
-        if (this.isEmpty()) {
-            return false;
-        }
+    let isContain = false
 
-        let isContain = false;
+    let currentElement = this._storage
 
-        let currentElement = this._storage;
-
-        while (currentElement) {
-            if (currentElement.value == value) {
-                isContain = true;
-                break;
-            }
-            currentElement = currentElement.next;
-        }
-
-        return isContain;
+    while (currentElement) {
+      if (currentElement.value == value) {
+        isContain = true
+        break
+      }
+      currentElement = currentElement.next
     }
 
-    isEmpty() {
-        return Object.keys(this._storage).length == 0;
-    }
+    return isContain
+  }
 
-    _newElement(value, next) {
-        return {
-            value: value,
-            next: next,
-        };
+  isEmpty() {
+    return Object.keys(this._storage).length == 0
+  }
+
+  _newElement(value, next) {
+    return {
+      value: value,
+      next: next,
     }
+  }
 }
 
-module.exports = LinkedList;
+module.exports = LinkedList
