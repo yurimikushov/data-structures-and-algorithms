@@ -49,7 +49,7 @@ describe('check insert() method', () => {
     })
   })
 
-  test('insert a exists key', () => {
+  test('insert existing key', () => {
     let hashTable = new HashTable()
 
     hashTable.insert('key1', 1)
@@ -62,7 +62,7 @@ describe('check insert() method', () => {
     })
   })
 
-  test('insert a exists key', () => {
+  test('insert multiple values in a single array cell', () => {
     let hashTable = new HashTable()
 
     hashTable.insert('key1', 1)
