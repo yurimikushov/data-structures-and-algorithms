@@ -7,7 +7,7 @@ class HashTable {
   insert(key, value) {
     let isKeyExists = false
 
-    let item = this._storage[this._hash(key)]
+    let item = this._item(key)
 
     while (item) {
       if (item.key == key) {
@@ -16,7 +16,6 @@ class HashTable {
         isKeyExists = true
         break
       }
-
       item = item.next
     }
 
@@ -29,12 +28,27 @@ class HashTable {
     }
   }
 
-  get(key) {}
+  get(key) {
+    let item = this._item(key)
+
+    while (item) {
+      if (item.key == key) {
+        return item.value
+      }
+      item = item.next
+    }
+
+    return
+  }
 
   remove(key) {}
 
   _hash(key) {
     return key.split('').reduce((acc, ch) => acc + ch.charCodeAt(), 0) % this._size
+  }
+
+  _item(key) {
+    return this._storage[this._hash(key)]
   }
 }
 

@@ -85,6 +85,19 @@ describe('check insert() method', () => {
   })
 })
 
-describe('check get() method', () => {})
+describe('check get() method', () => {
+  test('get an existing value', () => {
+    let hashTable = new HashTable()
+
+    hashTable.insert('key1', 1)
+    hashTable.insert('key1', 2)
+
+    expect(hashTable.get('key1')).toBe(2)
+  })
+
+  test('get an unexisting value', () => {
+    expect(new HashTable().get('key1')).toBe(undefined)
+  })
+})
 
 describe('check remove() method', () => {})
