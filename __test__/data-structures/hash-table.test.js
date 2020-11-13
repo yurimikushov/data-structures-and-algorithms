@@ -1,5 +1,7 @@
 const HashTable = require('./../../src/data-structures/hash-table.js')
 
+const item = (hashTable, key) => hashTable._storage[hashTable._hash(key)]
+
 describe('check _hash() method', () => {
   test('hash table size equals 10', () => {
     let hashTable = new HashTable()
@@ -23,8 +25,6 @@ describe('check _hash() method', () => {
 })
 
 describe('check insert() method', () => {
-  const item = (hashTable, key) => hashTable._storage[hashTable._hash(key)]
-
   test('insert a new key-value', () => {
     let hashTable = new HashTable()
 
@@ -100,4 +100,51 @@ describe('check get() method', () => {
   })
 })
 
-describe('check remove() method', () => {})
+describe('check remove() method', () => {
+  test('remove first item from linked list', () => {
+    let hashTable = new HashTable()
+
+    hashTable.insert('key1', 1)
+
+    expect(hashTable.remove('key1')).toBe(1)
+    expect(item(hashTable, 'key1')).toBe(undefined)
+  })
+
+  test('remove middle item from linked list', () => {
+    let hashTable = new HashTable()
+
+    hashTable.insert('key1', 1)
+    hashTable.insert('key12', 2)
+    hashTable.insert('key113', 3)
+
+    expect(hashTable.remove('key12')).toBe(2)
+    expect(item(hashTable, 'key1')).toEqual({
+      key: 'key113',
+      value: 3,
+      next: {
+        key: 'key1',
+        value: 1,
+        next: undefined,
+      },
+    })
+  })
+
+  test('remove last item from linked list', () => {
+    let hashTable = new HashTable()
+
+    hashTable.insert('key1', 1)
+    hashTable.insert('key12', 2)
+    hashTable.insert('key113', 3)
+
+    expect(hashTable.remove('key113')).toBe(3)
+    expect(item(hashTable, 'key1')).toEqual({
+      key: 'key12',
+      value: 2,
+      next: {
+        key: 'key1',
+        value: 1,
+        next: undefined,
+      },
+    })
+  })
+})
