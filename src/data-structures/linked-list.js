@@ -5,7 +5,7 @@ class LinkedList {
 
   insertAtEnd(value) {
     if (this.isEmpty()) {
-      this._storage = this._newElement(value, null)
+      this._storage = this._newElement(value)
     } else {
       let lastElement = this._storage
 
@@ -13,13 +13,13 @@ class LinkedList {
         lastElement = lastElement.next
       }
 
-      lastElement.next = this._newElement(value, null)
+      lastElement.next = this._newElement(value)
     }
   }
 
   insertAtStart(value) {
     if (this.isEmpty()) {
-      this._storage = this._newElement(value, null)
+      this._storage = this._newElement(value)
     } else {
       this._storage = this._newElement(value, this._storage)
     }
