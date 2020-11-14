@@ -61,16 +61,20 @@ class LinkedList {
   }
 
   deleteAtEnd() {
-    let newLinkedList = new LinkedList()
+    let secondToLastElement
 
-    let currentElement = this._storage
+    let lastElement = this._storage
 
-    while (currentElement.next) {
-      newLinkedList.insertAtEnd(currentElement.value)
-      currentElement = currentElement.next
+    while (lastElement.next) {
+      secondToLastElement = lastElement
+      lastElement = lastElement.next
     }
 
-    this._storage = newLinkedList._storage
+    if (secondToLastElement) {
+      secondToLastElement.next = undefined
+    }
+
+    return lastElement.value
   }
 
   deleteAtStart() {
