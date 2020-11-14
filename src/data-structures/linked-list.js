@@ -45,19 +45,31 @@ class LinkedList {
   }
 
   delete(value) {
-    let newLinkedList = new LinkedList()
+    if (this.isEmpty()) {
+      return
+    }
 
-    let currentElement = this._storage
+    // check first element
+
+    if (this._storage.value == value) {
+      return this.deleteAtStart()
+    }
+
+    // check other elements
+
+    let prevElement = this._storage
+    let currentElement = this._storage.next
 
     while (currentElement) {
-      if (currentElement.value != value) {
-        newLinkedList.insertAtEnd(currentElement.value)
+      if (currentElement.value == value) {
+        prevElement.next = currentElement.next
+        return value
       }
-
+      prevElement = currentElement
       currentElement = currentElement.next
     }
 
-    this._storage = newLinkedList._storage
+    return
   }
 
   deleteAtEnd() {

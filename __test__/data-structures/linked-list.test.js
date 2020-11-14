@@ -84,7 +84,19 @@ describe('check insertAfter() method', () => {
 })
 
 describe('check delete() method', () => {
-  test('delete two elements at middle', () => {
+  test('delete non-existent element at empty linked list', () => {
+    expect(new LinkedList().delete(1)).toBe(undefined)
+  })
+
+  test('delete non-existent element at filled linked list', () => {
+    let linkedList = new LinkedList()
+
+    linkedList.insertAtEnd(1)
+
+    expect(linkedList.delete(2)).toBe(undefined)
+  })
+
+  test('delete two exists elements at middle', () => {
     let linkedList = new LinkedList()
 
     linkedList.insertAtEnd(1)
@@ -92,9 +104,8 @@ describe('check delete() method', () => {
     linkedList.insertAtEnd(3)
     linkedList.insertAtEnd(4)
 
-    linkedList.delete(2)
-    linkedList.delete(3)
-
+    expect(linkedList.delete(2)).toBe(2)
+    expect(linkedList.delete(3)).toBe(3)
     expect(linkedList._storage).toEqual({
       value: 1,
       next: {
