@@ -10,6 +10,7 @@ Here I implement basic data structures and algorithms in JS. I have already impl
 4. [Linked list](src/data-structures/linked_list.js)
 5. [Map](src/data-structures/map.js)
 6. [Set](src/data-structures/set.js)
+7. [Hash table](src/data-structures/hash-table.js)
 
 ## Algorithms
 
