@@ -90,14 +90,14 @@ class LinkedList {
   }
 
   deleteAtStart() {
-    let value
+    let valueToDelete
 
     if (this._storage.next) {
-      value = this._storage.value
+      valueToDelete = this._storage.value
       this._storage = this._storage.next
     }
 
-    return value
+    return valueToDelete
   }
 
   isContain(value) {
