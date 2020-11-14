@@ -74,22 +74,14 @@ class LinkedList {
   }
 
   deleteAtStart() {
-    let currentElement = this._storage
+    let value
 
-    if (currentElement.next) {
-      currentElement = currentElement.next
+    if (this._storage.next) {
+      value = this._storage.value
+      this._storage = this._storage.next
     }
 
-    let newLinkedList = new LinkedList()
-
-    while (currentElement.next) {
-      newLinkedList.insertAtEnd(currentElement.value)
-      currentElement = currentElement.next
-    }
-
-    newLinkedList.insertAtEnd(currentElement.value)
-
-    this._storage = newLinkedList._storage
+    return value
   }
 
   isContain(value) {

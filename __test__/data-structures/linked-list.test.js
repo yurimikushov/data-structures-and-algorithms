@@ -99,19 +99,21 @@ describe('check deleteAtEnd() method', () => {
 })
 
 describe('check deleteAtStart() method', () => {
-  test('delete the first element', () => {
+  test('delete from emplty linked list', () => {
+    expect(new LinkedList().deleteAtStart()).toBe(undefined)
+  })
+
+  test('delete from filled linked list', () => {
     let linkedList = new LinkedList()
 
     linkedList.insertAtEnd(1)
     linkedList.insertAtEnd(2)
     linkedList.insertAtEnd(3)
 
-    linkedList.deleteAtStart()
+    expect(linkedList.deleteAtStart()).toBe(1)
 
-    let storage = linkedList._storage
-
-    expect(storage.value).toBe(2)
-    expect(storage.next.value).toBe(3)
+    expect(linkedList._storage.value).toBe(2)
+    expect(linkedList._storage.next.value).toBe(3)
   })
 })
 
