@@ -7,16 +7,16 @@ class HashTable {
   insert(key, value) {
     let isKeyExists = false
 
-    let item = this._item(key)
+    let currentElement = this._item(key)
 
-    while (item) {
-      if (item.key == key) {
-        item.key = key
-        item.value = value
+    while (currentElement) {
+      if (currentElement.key == key) {
+        currentElement.key = key
+        currentElement.value = value
         isKeyExists = true
         break
       }
-      item = item.next
+      currentElement = currentElement.next
     }
 
     if (!isKeyExists) {
@@ -29,47 +29,47 @@ class HashTable {
   }
 
   get(key) {
-    let item = this._item(key)
+    let currentElement = this._item(key)
 
-    while (item) {
-      if (item.key == key) {
-        return item.value
+    while (currentElement) {
+      if (currentElement.key == key) {
+        return currentElement.value
       }
-      item = item.next
+      currentElement = currentElement.next
     }
 
     return
   }
 
   remove(key) {
-    let item = this._item(key)
+    let currentElement = this._item(key)
 
-    if (!item) {
+    if (!currentElement) {
       return
     }
 
-    // first linked list item
+    // first linked list element
 
-    if (item.key == key) {
-      this._storage[this._hash(key)] = item.next
-      return item.value
+    if (currentElement.key == key) {
+      this._storage[this._hash(key)] = currentElement.next
+      return currentElement.value
     }
 
-    // other linked list item
+    // other linked list element
 
-    let linkedList = item
+    let linkedList = currentElement
 
-    let prev = item
-    item = item.next
+    let prevElement = currentElement
+    currentElement = currentElement.next
 
-    while (item) {
-      if (item.key == key) {
-        prev.next = item.next
+    while (currentElement) {
+      if (currentElement.key == key) {
+        prevElement.next = currentElement.next
         this._storage[this._hash(key)] = linkedList
-        return item.value
+        return currentElement.value
       }
-      prev = item
-      item = item.next
+      prevElement = currentElement
+      currentElement = currentElement.next
     }
 
     return
