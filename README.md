@@ -1,3 +1,5 @@
+ ![GitHub Workflow Status](https://img.shields.io/github/workflow/status/yurimikushov/data-structures-and-algorithms/Test?label=tests) ![GitHub last commit](https://img.shields.io/github/last-commit/yurimikushov/data-structures-and-algorithms) ![GitHub](https://img.shields.io/github/license/yurimikushov/data-structures-and-algorithms)
+
 # Data structures and algorithms
 
 Here I implement basic data structures and algorithms in JS. I have already implemented some of them.
