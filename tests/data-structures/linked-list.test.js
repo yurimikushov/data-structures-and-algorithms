@@ -36,7 +36,18 @@ describe('check insertAtEnd() method', () => {
 })
 
 describe('check insertAtStart() method', () => {
-  test('insert one element to start', () => {
+  test('intert one element to empty linked list', () => {
+    let linkedList = new LinkedList()
+
+    linkedList.insertAtStart(1)
+
+    expect(linkedList._storage).toEqual({
+      value: 1,
+      next: undefined,
+    })
+  })
+
+  test('insert one element to filled linked list', () => {
     let linkedList = new LinkedList()
 
     linkedList.insertAtEnd(1)
@@ -84,7 +95,7 @@ describe('check insertAfter() method', () => {
 })
 
 describe('check delete() method', () => {
-  test('delete non-existent element at empty linked list', () => {
+  test('delete from empty linked list', () => {
     expect(new LinkedList().delete(1)).toBe(undefined)
   })
 

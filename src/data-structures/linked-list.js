@@ -9,7 +9,8 @@ class LinkedListNode {
 
 class LinkedList {
   constructor() {
-    this._storage = {}
+    this._storage
+    this._length = 0
   }
 
   insertAtEnd(value) {
@@ -24,21 +25,20 @@ class LinkedList {
 
       lastElement.next = new LinkedListNode(value)
     }
+
+    this._length++
   }
 
   insertAtStart(value) {
-    if (this.isEmpty()) {
-      this._storage = new LinkedListNode(value)
-    } else {
-      this._storage = new LinkedListNode(value, this._storage)
-    }
+    this._storage = new LinkedListNode(value, this._storage)
+    this._length++
   }
 
   insertAfter(afterValue, value) {
-    let prevElement = this._storage,
-      findedElement = false
+    let prevElement = this._storage
+    let findedElement = false
 
-    while (prevElement.next) {
+    while (prevElement && prevElement.next) {
       if (prevElement.value == afterValue) {
         findedElement = true
         break
@@ -48,6 +48,7 @@ class LinkedList {
 
     if (findedElement) {
       prevElement.next = new LinkedListNode(value, prevElement.next)
+      this._length++
     }
 
     return findedElement
@@ -72,6 +73,7 @@ class LinkedList {
     while (currentElement) {
       if (currentElement.value == value) {
         prevElement.next = currentElement.next
+        this._length--
         return value
       }
       prevElement = currentElement
@@ -82,9 +84,12 @@ class LinkedList {
   }
 
   deleteAtEnd() {
-    let secondToLastElement
+    if (this.isEmpty()) {
+      return
+    }
 
     let lastElement = this._storage
+    let secondToLastElement
 
     while (lastElement.next) {
       secondToLastElement = lastElement
@@ -95,15 +100,18 @@ class LinkedList {
       secondToLastElement.next = undefined
     }
 
+    this._length--
+
     return lastElement.value
   }
 
   deleteAtStart() {
     let valueToDelete
 
-    if (this._storage.next) {
+    if (this._storage && this._storage.next) {
       valueToDelete = this._storage.value
       this._storage = this._storage.next
+      this._length--
     }
 
     return valueToDelete
@@ -130,7 +138,7 @@ class LinkedList {
   }
 
   isEmpty() {
-    return Object.keys(this._storage).length == 0
+    return this._length == 0
   }
 }
 
