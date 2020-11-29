@@ -6,7 +6,7 @@
   "author": "Yuri Mikushov",
   "license": "MIT",
   "scripts": {
-    "s-test": "eslint .",
+    "lint": "eslint .",
     "test": "jest"
   },
   "devDependencies": {
