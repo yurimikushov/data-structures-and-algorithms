@@ -1,3 +1,12 @@
+class LinkedListNode {
+  constructor(value, next) {
+    return {
+      value: value,
+      next: next,
+    }
+  }
+}
+
 class LinkedList {
   constructor() {
     this._storage = {}
@@ -5,7 +14,7 @@ class LinkedList {
 
   insertAtEnd(value) {
     if (this.isEmpty()) {
-      this._storage = this._newElement(value)
+      this._storage = new LinkedListNode(value)
     } else {
       let lastElement = this._storage
 
@@ -13,15 +22,15 @@ class LinkedList {
         lastElement = lastElement.next
       }
 
-      lastElement.next = this._newElement(value)
+      lastElement.next = new LinkedListNode(value)
     }
   }
 
   insertAtStart(value) {
     if (this.isEmpty()) {
-      this._storage = this._newElement(value)
+      this._storage = new LinkedListNode(value)
     } else {
-      this._storage = this._newElement(value, this._storage)
+      this._storage = new LinkedListNode(value, this._storage)
     }
   }
 
@@ -38,7 +47,7 @@ class LinkedList {
     }
 
     if (findedElement) {
-      prevElement.next = this._newElement(value, prevElement.next)
+      prevElement.next = new LinkedListNode(value, prevElement.next)
     }
 
     return findedElement
@@ -122,13 +131,6 @@ class LinkedList {
 
   isEmpty() {
     return Object.keys(this._storage).length == 0
-  }
-
-  _newElement(value, next) {
-    return {
-      value: value,
-      next: next,
-    }
   }
 }
 
