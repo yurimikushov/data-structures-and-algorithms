@@ -17,3 +17,7 @@ Here I implement basic data structures and algorithms in JS. I have already impl
 1. [Selection sort](src/algorithms/selection-sort.js)
 2. [Quick sort](src/algorithms/quick-sort.js)
 3. [Binary search](src/algorithms/binary-search.js)
+
+# License
+
+The project is available under the [MIT License](LICENSE).
