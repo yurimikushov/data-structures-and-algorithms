@@ -1,4 +1,4 @@
-const HashTable = require('./../../src/data-structures/hash-table.js')
+const HashTable = require('./hash-table.js')
 
 describe('check _hash() method', () => {
   test('hash table size equals 10', () => {

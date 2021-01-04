@@ -1,4 +1,4 @@
-const LinkedList = require('./../../src/data-structures/linked-list.js')
+const LinkedList = require('./linked-list.js')
 
 describe('check isEmpty() method', () => {
   test('new linked list is empty', () => {

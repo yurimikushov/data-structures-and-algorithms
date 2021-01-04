@@ -1,4 +1,4 @@
-const quickSort = require('./../../src/algorithms/quick-sort.js')
+const quickSort = require('./quick-sort.js')
 
 describe('check quick sort method', () => {
   test('sort numbers', () => {

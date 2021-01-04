@@ -1,4 +1,4 @@
-const Queue = require('./../../src/data-structures/queue.js')
+const Queue = require('./queue-by-stack.js')
 
 describe('check insert() method', () => {
   test('stack contains three elements', () => {
@@ -8,9 +8,9 @@ describe('check insert() method', () => {
     queue.insert(2)
     queue.insert(3)
 
-    expect(queue._storage[0]).toBe(1)
-    expect(queue._storage[1]).toBe(2)
-    expect(queue._storage[2]).toBe(3)
+    expect(queue._stack._storage[0]).toBe(1)
+    expect(queue._stack._storage[1]).toBe(2)
+    expect(queue._stack._storage[2]).toBe(3)
   })
 })
 

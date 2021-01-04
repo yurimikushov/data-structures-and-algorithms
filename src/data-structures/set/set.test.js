@@ -1,4 +1,4 @@
-const Set = require('./../../src/data-structures/set.js')
+const Set = require('./set.js')
 
 describe('check insert() method', () => {
   test('set contains three elements', () => {

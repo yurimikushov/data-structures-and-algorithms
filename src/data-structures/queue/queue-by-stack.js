@@ -1,4 +1,4 @@
-const Stack = require('./stack.js')
+const Stack = require('../stack/stack.js')
 
 class Queue {
   constructor() {
