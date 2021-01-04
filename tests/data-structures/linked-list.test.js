@@ -22,7 +22,7 @@ describe('check insertAtEnd() method', () => {
     linkedList.insertAtEnd(2)
     linkedList.insertAtEnd(3)
 
-    expect(linkedList._storage).toEqual({
+    expect(linkedList._head).toEqual({
       value: 1,
       next: {
         value: 2,
@@ -41,7 +41,7 @@ describe('check insertAtStart() method', () => {
 
     linkedList.insertAtStart(1)
 
-    expect(linkedList._storage).toEqual({
+    expect(linkedList._head).toEqual({
       value: 1,
       next: undefined,
     })
@@ -56,7 +56,7 @@ describe('check insertAtStart() method', () => {
 
     linkedList.insertAtStart(4)
 
-    expect(linkedList._storage).toEqual({
+    expect(linkedList._head).toEqual({
       value: 4,
       next: {
         value: 1,
@@ -81,7 +81,7 @@ describe('check insertAfter() method', () => {
 
     linkedList.insertAfter(1, 3)
 
-    expect(linkedList._storage).toEqual({
+    expect(linkedList._head).toEqual({
       value: 1,
       next: {
         value: 3,
@@ -117,7 +117,7 @@ describe('check delete() method', () => {
 
     expect(linkedList.delete(2)).toBe(2)
     expect(linkedList.delete(3)).toBe(3)
-    expect(linkedList._storage).toEqual({
+    expect(linkedList._head).toEqual({
       value: 1,
       next: {
         value: 4,
@@ -140,7 +140,7 @@ describe('check deleteAtEnd() method', () => {
     linkedList.insertAtEnd(3)
 
     expect(linkedList.deleteAtEnd()).toBe(3)
-    expect(linkedList._storage).toEqual({
+    expect(linkedList._head).toEqual({
       value: 1,
       next: {
         value: 2,
@@ -163,7 +163,7 @@ describe('check deleteAtStart() method', () => {
     linkedList.insertAtEnd(3)
 
     expect(linkedList.deleteAtStart()).toBe(1)
-    expect(linkedList._storage).toEqual({
+    expect(linkedList._head).toEqual({
       value: 2,
       next: {
         value: 3,

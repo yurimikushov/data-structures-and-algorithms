@@ -9,15 +9,15 @@ class LinkedListNode {
 
 class LinkedList {
   constructor() {
-    this._storage
+    this._head
     this._length = 0
   }
 
   insertAtEnd(value) {
     if (this.isEmpty()) {
-      this._storage = new LinkedListNode(value)
+      this._head = new LinkedListNode(value)
     } else {
-      let lastElement = this._storage
+      let lastElement = this._head
 
       while (lastElement.next) {
         lastElement = lastElement.next
@@ -30,12 +30,12 @@ class LinkedList {
   }
 
   insertAtStart(value) {
-    this._storage = new LinkedListNode(value, this._storage)
+    this._head = new LinkedListNode(value, this._head)
     this._length++
   }
 
   insertAfter(afterValue, value) {
-    let prevElement = this._storage
+    let prevElement = this._head
     let findedElement = false
 
     while (prevElement && prevElement.next) {
@@ -61,14 +61,14 @@ class LinkedList {
 
     // check first element
 
-    if (this._storage.value == value) {
+    if (this._head.value == value) {
       return this.deleteAtStart()
     }
 
     // check other elements
 
-    let prevElement = this._storage
-    let currentElement = this._storage.next
+    let prevElement = this._head
+    let currentElement = this._head.next
 
     while (currentElement) {
       if (currentElement.value == value) {
@@ -88,7 +88,7 @@ class LinkedList {
       return
     }
 
-    let lastElement = this._storage
+    let lastElement = this._head
     let secondToLastElement
 
     while (lastElement.next) {
@@ -108,9 +108,9 @@ class LinkedList {
   deleteAtStart() {
     let valueToDelete
 
-    if (this._storage && this._storage.next) {
-      valueToDelete = this._storage.value
-      this._storage = this._storage.next
+    if (this._head && this._head.next) {
+      valueToDelete = this._head.value
+      this._head = this._head.next
       this._length--
     }
 
@@ -124,7 +124,7 @@ class LinkedList {
 
     let isContain = false
 
-    let currentElement = this._storage
+    let currentElement = this._head
 
     while (currentElement) {
       if (currentElement.value == value) {
