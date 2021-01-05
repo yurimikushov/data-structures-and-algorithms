@@ -1,86 +1,93 @@
 class HashTable {
   constructor(size = 10) {
-    this._storage = new Array(size)
+    this._table = new Array(size)
     this._size = size
   }
 
   insert(key, value) {
     let isKeyExists = false
 
-    let currentElement = this._item(key)
+    let headLinkedListNode = this._headLinkedListNodeInTableCell(key)
+    let currentLinkedListNode = headLinkedListNode
 
-    while (currentElement) {
-      if (currentElement.key == key) {
-        currentElement.key = key
-        currentElement.value = value
+    while (currentLinkedListNode) {
+      if (currentLinkedListNode.is(key)) {
+        currentLinkedListNode.update(value)
         isKeyExists = true
         break
       }
-      currentElement = currentElement.next
+      currentLinkedListNode = currentLinkedListNode.next
     }
 
     if (!isKeyExists) {
-      this._storage[this._hash(key)] = {
-        key: key,
-        value: value,
-        next: this._storage[this._hash(key)],
-      }
+      this._table[this._tableCellIndex(key)] = new LinkedListNode(key, value, headLinkedListNode)
     }
   }
 
   get(key) {
-    let currentElement = this._item(key)
+    let linkedListNode = this._headLinkedListNodeInTableCell(key)
 
-    while (currentElement) {
-      if (currentElement.key == key) {
-        return currentElement.value
+    while (linkedListNode) {
+      if (linkedListNode.is(key)) {
+        return linkedListNode.value
       }
-      currentElement = currentElement.next
+      linkedListNode = linkedListNode.next
     }
 
     return
   }
 
-  remove(key) {
-    let currentElement = this._item(key)
+  delete(key) {
+    let currentLinkedListNode = this._headLinkedListNodeInTableCell(key)
 
-    if (!currentElement) {
+    if (!currentLinkedListNode) {
       return
     }
 
     // first linked list element
 
-    if (currentElement.key == key) {
-      this._storage[this._hash(key)] = currentElement.next
-      return currentElement.value
+    if (currentLinkedListNode.is(key)) {
+      this._table[this._tableCellIndex(key)] = currentLinkedListNode.next
+      return currentLinkedListNode.value
     }
 
     // other linked list element
 
-    let linkedList = currentElement
+    let prevLinkedListNode = currentLinkedListNode
+    currentLinkedListNode = currentLinkedListNode.next
 
-    let prevElement = currentElement
-    currentElement = currentElement.next
-
-    while (currentElement) {
-      if (currentElement.key == key) {
-        prevElement.next = currentElement.next
-        this._storage[this._hash(key)] = linkedList
-        return currentElement.value
+    while (currentLinkedListNode) {
+      if (currentLinkedListNode.is(key)) {
+        prevLinkedListNode.next = currentLinkedListNode.next
+        return currentLinkedListNode.value
       }
-      prevElement = currentElement
-      currentElement = currentElement.next
+      prevLinkedListNode = currentLinkedListNode
+      currentLinkedListNode = currentLinkedListNode.next
     }
-
-    return
   }
 
-  _hash(key) {
+  _tableCellIndex(key) {
     return key.split('').reduce((acc, ch) => acc + ch.charCodeAt(), 0) % this._size
   }
 
-  _item(key) {
-    return this._storage[this._hash(key)]
+  _headLinkedListNodeInTableCell(key) {
+    return this._table[this._tableCellIndex(key)]
+  }
+}
+
+class LinkedListNode {
+  constructor(key, value, next) {
+    this.key = key
+    this.value = value
+    this.next = next
+  }
+
+  is(key) {
+    return this.key === key
+  }
+
+  update(value) {
+    this.value = value
   }
 }
 
