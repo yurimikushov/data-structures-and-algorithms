@@ -8,13 +8,13 @@ class LinkedList {
     if (this.isEmpty()) {
       this._head = new LinkedListNode(value)
     } else {
-      let lastElement = this._head
+      let lastLinkedListNode = this._head
 
-      while (lastElement.next) {
-        lastElement = lastElement.next
+      while (lastLinkedListNode.next) {
+        lastLinkedListNode = lastLinkedListNode.next
       }
 
-      lastElement.next = new LinkedListNode(value)
+      lastLinkedListNode.next = new LinkedListNode(value)
     }
 
     this._length++
@@ -26,23 +26,23 @@ class LinkedList {
   }
 
   insertAfter(afterValue, value) {
-    let prevElement = this._head
-    let findedElement = false
+    let prevLinkedListNode = this._head
+    let findedLinkedListNode = false
 
-    while (prevElement && prevElement.next) {
-      if (prevElement.value == afterValue) {
-        findedElement = true
+    while (prevLinkedListNode && prevLinkedListNode.next) {
+      if (prevLinkedListNode.value === afterValue) {
+        findedLinkedListNode = true
         break
       }
-      prevElement = prevElement.next
+      prevLinkedListNode = prevLinkedListNode.next
     }
 
-    if (findedElement) {
-      prevElement.next = new LinkedListNode(value, prevElement.next)
+    if (findedLinkedListNode) {
+      prevLinkedListNode.next = new LinkedListNode(value, prevLinkedListNode.next)
       this._length++
     }
 
-    return findedElement
+    return findedLinkedListNode
   }
 
   delete(value) {
@@ -52,23 +52,23 @@ class LinkedList {
 
     // check first element
 
-    if (this._head.value == value) {
+    if (this._head.value === value) {
       return this.deleteAtStart()
     }
 
     // check other elements
 
-    let prevElement = this._head
-    let currentElement = this._head.next
+    let prevLinkedListNode = this._head
+    let currentLinkedListNode = this._head.next
 
-    while (currentElement) {
-      if (currentElement.value == value) {
-        prevElement.next = currentElement.next
+    while (currentLinkedListNode) {
+      if (currentLinkedListNode.value === value) {
+        prevLinkedListNode.next = currentLinkedListNode.next
         this._length--
         return value
       }
-      prevElement = currentElement
-      currentElement = currentElement.next
+      prevLinkedListNode = currentLinkedListNode
+      currentLinkedListNode = currentLinkedListNode.next
     }
 
     return
@@ -79,21 +79,21 @@ class LinkedList {
       return
     }
 
-    let lastElement = this._head
-    let secondToLastElement
+    let prevLinkedListNode = this._head
+    let secondToLastLinkedListNode
 
-    while (lastElement.next) {
-      secondToLastElement = lastElement
-      lastElement = lastElement.next
+    while (prevLinkedListNode.next) {
+      secondToLastLinkedListNode = prevLinkedListNode
+      prevLinkedListNode = prevLinkedListNode.next
     }
 
-    if (secondToLastElement) {
-      secondToLastElement.next = undefined
+    if (secondToLastLinkedListNode) {
+      secondToLastLinkedListNode.next = undefined
     }
 
     this._length--
 
-    return lastElement.value
+    return prevLinkedListNode.value
   }
 
   deleteAtStart() {
@@ -115,21 +115,21 @@ class LinkedList {
 
     let isContain = false
 
-    let currentElement = this._head
+    let currentLinkedListNode = this._head
 
-    while (currentElement) {
-      if (currentElement.value == value) {
+    while (currentLinkedListNode) {
+      if (currentLinkedListNode.value === value) {
         isContain = true
         break
       }
-      currentElement = currentElement.next
+      currentLinkedListNode = currentLinkedListNode.next
     }
 
     return isContain
   }
 
   isEmpty() {
-    return this._length == 0
+    return this._length === 0
   }
 }
 
