@@ -132,6 +132,14 @@ describe('check deleteAtEnd() method', () => {
     expect(new LinkedList().deleteAtStart()).toBe(undefined)
   })
 
+  test('delete from linked list with one element', () => {
+    let linkedList = new LinkedList()
+
+    linkedList.insertAtEnd(1)
+
+    expect(linkedList.deleteAtEnd()).toBe(1)
+  })
+
   test('delete from filled linked list', () => {
     let linkedList = new LinkedList()
 
