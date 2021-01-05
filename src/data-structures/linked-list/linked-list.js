@@ -1,12 +1,3 @@
-class LinkedListNode {
-  constructor(value, next) {
-    return {
-      value: value,
-      next: next,
-    }
-  }
-}
-
 class LinkedList {
   constructor() {
     this._head
@@ -139,6 +130,13 @@ class LinkedList {
 
   isEmpty() {
     return this._length == 0
+  }
+}
+
+class LinkedListNode {
+  constructor(value, next) {
+    this.value = value
+    this.next = next
   }
 }
 
