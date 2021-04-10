@@ -1,28 +1,28 @@
 function selectionSort(arr) {
-  const smallest = (arr) => {
-    let smallestID = 0,
-      smallestValue = arr[0]
+  const result = []
 
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i] < smallestValue) {
-        smallestValue = arr[i]
-        smallestID = i
-      }
-    }
+  while (arr.length !== 0) {
+    const smallestId = smallest(arr)
 
-    return smallestID
-  }
-
-  let result = []
-
-  while (arr.length) {
-    let smallestID = smallest(arr)
-
-    result.push(arr[smallestID])
-    arr.splice(smallestID, 1)
+    result.push(arr[smallestId])
+    arr.splice(smallestId, 1)
   }
 
   return result
+}
+
+function smallest(arr) {
+  let smallestId = 0
+  let smallestValue = arr[0]
+
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < smallestValue) {
+      smallestValue = arr[i]
+      smallestId = i
+    }
+  }
+
+  return smallestId
 }
 
 module.exports = selectionSort

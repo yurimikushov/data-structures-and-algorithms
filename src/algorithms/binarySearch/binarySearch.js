@@ -3,9 +3,8 @@ function binarySearch(arr, value) {
   let end = arr.length - 1
 
   while (start <= end) {
-    let middle = Math.round((start + end) / 2)
-
-    let guess = arr[middle]
+    const middle = Math.round((start + end) / 2)
+    const guess = arr[middle]
 
     if (guess == value) {
       return middle

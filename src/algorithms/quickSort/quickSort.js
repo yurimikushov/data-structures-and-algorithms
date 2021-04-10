@@ -3,14 +3,14 @@ function quickSort(arr) {
     return arr
   }
 
-  let pivotId = Math.floor(Math.random(0, arr.length)),
-    pivot = arr[pivotId]
+  const pivotId = Math.floor(Math.random(0, arr.length))
+  const pivot = arr[pivotId]
 
-  let less = [],
-    greatest = []
+  const less = []
+  const greatest = []
 
   for (let i = 0; i < arr.length; i++) {
-    let value = arr[i]
+    const value = arr[i]
 
     if (value < pivot) {
       less.push(value)
