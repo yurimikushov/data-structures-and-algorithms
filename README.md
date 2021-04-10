@@ -18,7 +18,8 @@ Here I implement basic data structures and algorithms in JS. I have already impl
 
 1. [Selection sort](src/algorithms/selectionSort/selectionSort.js)
 2. [Quick sort](src/algorithms/quickSort/quickSort.js)
-3. [Binary search](src/algorithms/binarySearch/binarySearch.js)
+3. [Merge sort](src/algorithms/mergeSort/mergeSort.js)
+4. [Binary search](src/algorithms/binarySearch/binarySearch.js)
 
 # License
 
