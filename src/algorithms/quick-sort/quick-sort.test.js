@@ -1,13 +1,16 @@
 const quickSort = require('./quick-sort.js')
 
-describe('check quick sort method', () => {
-  test('sort numbers', () => {
-    expect(quickSort([7, 1, 3, 2, 5, 4, 7, 6])).toEqual([1, 2, 3, 4, 5, 6, 7, 7])
+describe('check quickSort()', () => {
+  test('should return sorted array of numbers', () => {
+    const unsorted = [7, 1, 3, 2, 5, 4, 7, 6]
+    const sorted = [1, 2, 3, 4, 5, 6, 7, 7]
+
+    expect(quickSort(unsorted)).toEqual(sorted)
   })
 
-  test('sort words', () => {
-    let unsorted = ['Ben', 'Anna', 'Ella', 'Freda', 'Dan', 'Ben'],
-      sorted = ['Anna', 'Ben', 'Ben', 'Dan', 'Ella', 'Freda']
+  test('should return sorted array of words', () => {
+    const unsorted = ['Ben', 'Anna', 'Ella', 'Freda', 'Dan', 'Ben']
+    const sorted = ['Anna', 'Ben', 'Ben', 'Dan', 'Ella', 'Freda']
 
     expect(quickSort(unsorted)).toEqual(sorted)
   })
