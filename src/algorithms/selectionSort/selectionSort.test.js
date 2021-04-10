@@ -1,4 +1,4 @@
-const selectionSort = require('./selection-sort.js')
+const selectionSort = require('./selectionSort')
 
 describe('check selectionSort()', () => {
   test('should return sorted array of numbers', () => {
